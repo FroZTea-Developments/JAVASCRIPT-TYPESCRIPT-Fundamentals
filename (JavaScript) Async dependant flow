@@ -1,0 +1,35 @@
+async function createPostThenUser() {
+    console.log("1) Starting...")
+    const postResponse = await fetch("https://api.jsonplaceholder.dev/posts", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            title: "My async post",
+            body: "Larning dependent requests",
+            userId: 3
+        })
+    })
+    console.log("2) Got post response");
+
+    const createdPost = await postResponse.json()
+    console.log("3) Created Post:", createdPost);
+
+    console.log("4) Fetching user with id:", createdPost.userId);
+
+    const userResponse = await fetch(
+    `https://api.jsonplaceholder.dev/users/${createdPost.userId}`
+    );
+
+    console.log("5) Got user response");
+
+    const user = await userResponse.json();
+    console.log("6) User info:", user);
+}
+
+createPostThenUser()
+  .catch((error) => {
+    console.log("Request chain failed:", error);
+  });
+console.log("7) After calling createPostThenUser");

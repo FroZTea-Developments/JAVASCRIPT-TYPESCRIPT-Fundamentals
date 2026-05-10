@@ -1,0 +1,35 @@
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function run() {
+    console.log('Starting...');
+    
+    await delay(500);
+    const words = [' Apple ', 'banana', 'Cherry '];
+    
+    console.log(words);
+    
+    const clean = txt => txt.trim().toLowerCase();
+    const cleaned = words.map(clean);
+    await delay(500);
+   
+    console.log(cleaned);
+    
+    const longWords = cleaned.filter(word=> word.length > 5);
+    await delay(500);
+   
+    console.log(longWords);
+    
+    const longFruit = [...longWords];
+    longFruit.push('dragonfruit');
+    await delay(500);
+   
+    console.log(words);
+
+    await delay(500)
+    
+    console.log(longFruit)
+}
+
+run()

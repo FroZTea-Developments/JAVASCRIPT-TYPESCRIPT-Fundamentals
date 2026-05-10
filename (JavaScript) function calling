@@ -1,0 +1,11 @@
+function repeat(times, action) {
+    for(let i = 0; i < times; i++) {
+        action();
+    }
+}
+
+const sayHi = () => {
+    console.log("HELLO THERE")
+};
+
+repeat(3, sayHi);

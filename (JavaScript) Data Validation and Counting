@@ -1,0 +1,16 @@
+function countValid(users) {
+  let count = 0;
+  try {
+    users.forEach(user => {
+        if (typeof user === "string"){
+            const cleaned = user.trim();
+            if (cleaned.length > 0) count++;
+        } else {}
+    });
+  } catch (err) {
+    return 'ERROR: ' + err.message;
+  }
+  return count;
+}
+
+console.log(countValid(["alice", "  ", "bob", null, "Ronald"]));

@@ -1,0 +1,7 @@
+const point = [5, 10, 15];
+const user = { id: 42, name: "Ada", role: "admin" };
+const [x, y] = point;
+const {id , name, role} = user
+
+console.log(`x: ${x}, y: ${y}`);
+console.log(`name: ${name}, role: ${role}`);
